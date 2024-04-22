@@ -2,9 +2,9 @@
 
 Note: Start here if you are new to DevOps & IT
 
-**Level 1 (FUNDAMENTALS) **
+**Level 1 (FUNDAMENTALS)**
 
-**- Linux <:linux:939198295631343697> **
+**- Linux**
 > Basics of Linux Command Line
 > Navigating directories & manipulation (ls, cd, mv, cp, mkdir, touch, echo)
 > Process monitoring (ps, top, lsof)
@@ -16,7 +16,7 @@ Note: Start here if you are new to DevOps & IT
 > Text processing (grep, awk, sed)
 > Setup your own local Linux VM using VirtualBox/Vagrant or in the cloud
 
-**- Git fundamentals <:git:939199972405039164> **
+**- Git fundamentals**
 > Basics (cloning, ssh setups etc)
 > Commits
 > Branching
@@ -32,7 +32,7 @@ Note: Start here if you are new to DevOps & IT
 > HTTP/HTTPS/SSL/TTL
 > Forward vs Reverse Proxy (Load Balancers)
 
- **- Cloud I (AWS or Azure or GCP) <:aws:939196294767992833> <:azure:939196424262930452> <:gcp:939196670447611984> **
+ **- Cloud I (AWS or Azure or GCP)**
 > IaaS/PaaS/SaaS
 > Cloud vs on-prem
 > Cloud benefits, security etc
@@ -50,7 +50,7 @@ Note: Start here if you are new to DevOps & IT
 
 **Level 2 (Infrastructure & Containers)**
 
-** - Cloud II: AWS or Azure**
+**- Cloud II: AWS or Azure**
 
   - Containers (AWS ECS/EKS, Azure AKS)
   - CICD (AWS Code Deploy/Commit/Pipeline/Build, Azure DevOps)
@@ -67,7 +67,7 @@ Note: Start here if you are new to DevOps & IT
 > Terraform workflow (tf init, plan, apply, fmt, validate, destroy, import, refresh)
 > Create your own Terraform module and use it in different environments (prod, staging, dev etc) - Project
 
-**- Containers (Docker and Kubernetes) - Recommended <:docker:939198722586345592><:kubernetes:939197928050950228>  **
+**- Containers (Docker and Kubernetes) - Recommended**
 > What are containers? Compared to VMs
 > Images, writing Dockerfiles
 > Volumes
@@ -79,7 +79,7 @@ Note: Start here if you are new to DevOps & IT
 > Understanding K8s resources (pods, deployments, services, network policy, rbac, namespaces, PVCs, ingress etc)
 > K8s in the Cloud (EKS/AKS/GKE)
 
-**- CI/CD (GitHub Actions, Jenkins, GitLab, Azure DevOps) - Recommended <:github:939199828599136336> <:gitlab:939199828594941982> <:azure:939196424262930452> **
+**- CI/CD (GitHub Actions, Jenkins, GitLab, Azure DevOps) - Recommended**
 > What is CICD? How CICD fits into DevOps?
 > Using CICD to automate processes
 > Writing pipeline YAML/Jenkins files etc
@@ -89,7 +89,7 @@ Note: Start here if you are new to DevOps & IT
 
 **Level 3 (Scripting & Coding)**
 
-**- Python <:python:939197410188611674> /Golang <:golang:939198722649235516>-  (fundamentals + hands-on projects) **
+**- Python/Golang**
 > Programming basics
 > Data types
 > Vars
@@ -105,14 +105,14 @@ Note: Start here if you are new to DevOps & IT
 
 **Level 4 (Monitoring & Infra Management)**
 
-**- Helm (pre-req: Containers) - Optional** 📦 <:kubernetes:939197928050950228> 
+**- Helm (pre-req: Containers) - Optional** 📦
 > What is Helm? Link to K8s? 
 > Managing deployments and K8s resources using Helm
 > Common helm commands (helm install , upgrade, rollback, repo add/update/list, list, env, plugin, create, lint, pull)
 > Creating Helm charts and customising it
 > Look into Kustomize (alternative for Helm)
 
-**- Ansible  - Optional <:ansible:939201844511666206> **
+**- Ansible  - Optional**
 > What is Config mgmt? Diff types? How is it different to Terraform/IaC?
 > Creating playbooks
 > Creating roles
@@ -121,7 +121,7 @@ Note: Start here if you are new to DevOps & IT
 > Automating server update/config with Ansible
 > Integration with other providers
 
-**- Monitoring tools (Prometheus, ELK, New Relic, DataDog)  <:prometheus:939198722552774666> **
+**- Monitoring tools (Prometheus, ELK, New Relic, DataDog)**
 > How monitoring connects to all these?
 > When to use it?
 > Setting up alerts and monitoring initially
@@ -130,7 +130,7 @@ Note: Start here if you are new to DevOps & IT
 > On-call and how it works
 > Post-mortems and documentation etc
 
-**- SRE  **
+**- SRE**
 > SLI/SLO/SLAs
 > Post-mortems and documentation
 > Incident response & incident management
@@ -183,7 +183,7 @@ Note: Start here if you are new to DevOps & IT
 > Ingress controllers (Nginx ingress, Traefik)
 > Global load balancing
 
-**Advanced Monitoring 👀 👀**
+**Advanced Monitoring**
 > Distributed Tracing (Jaeger, Zpikin)
 > Advanced log management: ELK (Elasticsearch, Logstash, Kibana), Splunk, Graylog
 > Time Series Databases: InfluxDB, Prometheus
