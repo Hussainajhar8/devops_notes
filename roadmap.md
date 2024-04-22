@@ -58,7 +58,7 @@ Note: Start here if you are new to DevOps & IT
   - IaC (AWS CloudFormation, ARM, Bicep) Serverless (AWS Lambda, Azure Functions)
   - IoT/ML
 
-**- Terraform - Recommended <:terraform:939199273298432122-**
+**- Terraform - Recommended**
 - IaC basics
 - Terraform state
 - Terraform backend & state locking
