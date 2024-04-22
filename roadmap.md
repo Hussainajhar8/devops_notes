@@ -1,4 +1,4 @@
-# 🛠️ DevOps Pathway (Part 1)  🛠️ 
+# 🛠️ DevOps Pathway (Part 1)  🛠️ Credits: [Deengineers](https://www.deengineers.co.uk/)
 
 Note: Start here if you are new to DevOps & IT
 
