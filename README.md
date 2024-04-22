@@ -18,6 +18,10 @@ Here's a brief overview of the folders and topics covered in this repository:
 - **Docker**: Resources covering Docker containers, images, Dockerfile creation, Docker Compose, and best practices for containerization.
 - **Kubernetes**: Documentation and tutorials on Kubernetes orchestration, pods, deployments, services, and managing containerized applications at scale.
 
+## Roadmap
+
+For a detailed roadmap outlining a devops learning journey and potential upcoming topics, please refer to the [Roadmap](roadmap.md).
+
 ## Contribution
 
 Feel free to explore the contents of this repository and contribute in any way you see fit! Whether it's correcting a typo, suggesting improvements, or adding new content, your contributions are highly appreciated. Simply fork this repository, make your changes, and submit a pull request. Together, let's build a comprehensive knowledge base for DevOps enthusiasts everywhere!
