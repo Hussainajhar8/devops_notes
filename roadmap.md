@@ -1,4 +1,4 @@
-🛠️ DevOps Pathway (Part 1)  🛠️ 
+# 🛠️ DevOps Pathway (Part 1)  🛠️ 
 
 Note: Start here if you are new to DevOps & IT
 
@@ -99,9 +99,9 @@ Note: Start here if you are new to DevOps & IT
 > Projects
 > Contribute to open-source projects written in the language you are learning.
 
-🛠️ DevOps Roadmap 🛠️ (Part 2)
+# 🛠️ DevOps Roadmap 🛠️ (Part 2)
 
-**Important note: Only move to this once you have completed levels 1-3 **
+**Important note: Only move to this once you have completed levels 1-3**
 
 **Level 4 (Monitoring & Infra Management)**
 
