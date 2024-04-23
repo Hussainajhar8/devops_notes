@@ -91,18 +91,31 @@
 - `2>>`: Appends errors to a file.
 
 ## From OverTheWire
-- Example: `find /path/to/search -type f -size 1033c ! -executable -exec ls -lh {} +`.
 
-## Other Useful Commands
-- `uniq`: Identify duplicates in a file.
-- `tr`: Translate or delete characters.
-- `xxd -r`: Revert a hexdump file.
+- **find**: 
+  - Example: `find /path/to/search -type f -size 1033c ! -executable -exec ls -lh {} +`
+  - Description: Finds files within a specified path that meet certain criteria. In this example, it searches for files with exactly 1033 bytes (`-size 1033c`), are not executable (`! -executable`), and then executes `ls -lh` on each of them.
 
-## Common Decompression Methods
-- `gzip -d`: Decompress files with .gz extension.
-- `bzip2 -d`: Decompress files with .bz extension.
-- `tar -xf`: Extract files with .tar extension.
+- **uniq**:
+  - Description: Identifies duplicates of values in a file if they are adjacent to each other. 
+  - Example: `sort <file> | uniq -u`
+  - Description: Gets unique lines in the specified file after sorting it.
 
-## Netcat (nc) Command
-- Used for reading from and writing to network connections using TCP or UDP protocols.
-- Example: `nc localhost 30000`.
+- **tr**:
+  - Description: Translates or deletes characters. Commonly used for simple character transformations like ROT13 coding/decoding.
+  - Example: `cat <file> | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
+  - Description: Converts characters in the file according to the specified transformation rule.
+
+- **xxd -r**:
+  - Description: Reverts a hexdump file back to its original form.
+
+- **Common Decompression Methods**:
+  - `gzip -d`: Decompresses files with a .gz extension.
+  - `bzip2 -d`: Decompresses files with a .bz extension.
+  - `tar -xf`: Extracts files with a .tar extension. It removes the .tar extension from the decompressed version.
+
+- **nc (Netcat) Command**:
+  - Description: A versatile networking utility used for reading from and writing to network connections using TCP or UDP protocols.
+  - Example: `nc localhost 30000`
+  - Description: Connects to port 30000 on the localhost using the Netcat utility, establishing a TCP connection to the specified port.
+
