@@ -7,38 +7,38 @@
 ## Command Format
 - Format: `command <-options> <inputs>`.
 - Some options have their own input.
-![alt text](image.png)
+![alt text](img/image.png)
 - Some options need a `=` to be connected to their inputs.
 
 ## Manual Pages
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 - Mostly use sections 1, 5, and 8 of the manual structure.
 - Use `man -k <command>` to search for the manual for a specific command.
 - In a manual page, `[]` denotes optional options, `<>` denotes mandatory options, `[ | ]` denotes options inside that can't be used together, and `...` denotes multiple inputs.
 - Use `man -k "<text>"` to find new commands.
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 - Some commands don’t have a manual page so use `help` instead
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 ## Command Input and Output
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 - Direct standard output (1) with `>`.
 - Redirect standard error (2) with `2>`.
 - Redirection `>` overwrites current contents, `>>` appends to content.
 
 ## Piping
 - Use the Tee command to allow data flow in two directions.
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 - Xargs converts pipe data into command line arguments.
-![alt text](image-6.png)
-![alt text](image-7.png)
+![alt text](img/image-6.png)
+![alt text](img/image-7.png)
 
 ## File Management
 - A dot `.` makes a file hidden when added to the front.
 - `.bash_aliases` file for creating aliases in Linux.
 - Make aliases with `alias <alias_name>='<command_and_arg>'`.
-![alt text](image-8.png)
-![alt text](image-9.png)
+![alt text](img/image-8.png)
+![alt text](img/image-9.png)
 
 ## Useful Linux Commands
 1. `pwd`: Print working directory.
