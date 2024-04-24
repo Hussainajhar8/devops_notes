@@ -119,3 +119,34 @@
   - Example: `nc localhost 30000`
   - Description: Connects to port 30000 on the localhost using the Netcat utility, establishing a TCP connection to the specified port.
 
+- **`openssl s_client -connect localhost:30001 -ign_eof`**:
+  - Description: Establishes a secure connection to port 30001 on localhost using the OpenSSL s_client utility.
+  - `openssl s_client`: Initiates a generic SSL/TLS connection to a remote host.
+  - `-connect localhost:30001`: Specifies the host and port to connect to.
+  - `-ign_eof`: Instructs OpenSSL to ignore an EOF from the input stream.
+
+- **`nmap localhost -p 31000-32000`**:
+  - Description: Scans to see what servers are open on ports 31000-32000.
+
+- **Prior Command Execution Before SSH**:
+  - Example: `ssh -p 2220 -l bandit18 bandit.labs.overthewire.org '<command>'`
+  - Description: Executes a command from the terminal before SSHing into the server.
+   ![alt text](img/image-10.png)
+
+- **Utilizing Setuid Binary**:
+  - Description: Execute the setuid binary in the home directory to identify its purpose and usage.
+  - Example: `~/<binary-file-name>`
+![alt text](img/image-11.png)
+
+- **Command Execution with Netcat**:
+  - Example: 
+    ```bash
+    echo "bandit20_password" | nc -l -p 12345 &  # Start a netcat listener on port 12345 as a subshell ( with &)
+    ~/binary 12345                              # Execute the setuid binary, specifying port 12345
+    ```
+  - Description: Starts a netcat listener on port 12345 and executes the setuid binary with a specified port.
+![alt text](img/image-12.png)
+
+- **Brute-force Loop**:
+  - Command: `for i in {0000..9999}; do echo bandit24_password $i; done | nc localhost 30002`
+  - Brute-forces all possible 4-digit pincode combinations concatenated with the bandit24 password using netcat to find the correct pincode and retrieve the password for bandit25.
