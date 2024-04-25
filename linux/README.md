@@ -150,3 +150,45 @@
 - **Brute-force Loop**:
   - Command: `for i in {0000..9999}; do echo bandit24_password $i; done | nc localhost 30002`
   - Brute-forces all possible 4-digit pincode combinations concatenated with the bandit24 password using netcat to find the correct pincode and retrieve the password for bandit25.
+
+- **View Shells for Each Account**:
+  - Command: `cat /etc/passwd`
+  - Description: Displays the shells for each account on the system.
+
+- **Interactive Mode with `more`**:
+  - Description: Remains in interactive mode if all the contents haven’t filled your screen. 
+   ![alt text](img/image-13.png)
+  - Press `v` to go into `vim` mode. In `vim`, you can execute shell commands with `:e`. For example, `:e /etc/bandit_pass/bandit26` retrieves the password.
+
+- **Set Shell in Vim**:
+  - Command: `:set shell=/bin/bash`
+  - Description: Sets the shell in Vim, enabling the use of `:shell` to open a shell in that user.
+  ![alt text](img/image-14.png) 
+
+- **Git Clone with Custom Port**:
+  - Command: `git clone ssh://git@mydomain.example:[port]/gitolite-admin`
+  ![alt text](img/image-15.png) 
+  - Description: Clones a git repository with a custom port.
+
+- **Navigate Git History**:
+  - Command: 
+    - `git log`: Displays all git commits.
+    - `git checkout <commit_id>`: Moves to a previous commit.
+    - `git branch -a`: Views all branches.
+     ![alt text](img/image-16.png)
+
+- **Tag Objects in Git**:
+  - Command: `git tag`
+  - Description: Tags git objects. Use `git show` to see different types of objects.
+   ![alt text](img/image-17.png)
+
+- **Linux Variable `$0`**:
+  - Description: Represents the name of the currently executing script or program. Useful for referencing the script's name or determining how it was invoked.
+
+- **Open New Shell with `$0`**:
+  - Example: If stuck in a shell or binary, `$0` may open a new shell.
+  ![alt text](img/image-18.png) 
+
+- **Completed overthewire!!**:
+ ![alt text](img/image-19.png)
+
