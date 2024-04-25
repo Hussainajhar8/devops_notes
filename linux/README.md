@@ -5,28 +5,23 @@ Linux is a Unix-like operating system renowned for its open-source nature and ve
 # Index
 - [Linux Fundamental Knowledge](#linux-fundamental-knowledge)
 - [Index](#index)
-  - [`$PATH` and Command Paths](#path-and-command-paths)
-  - [Command Format](#command-format)
-  - [Manual Pages](#manual-pages)
-  - [Command Input and Output](#command-input-and-output)
-  - [Piping](#piping)
-  - [File Management](#file-management)
+  - [Basic commands and fundamentals](#basic-commands-and-fundamentals)
   - [Useful Linux Commands](#useful-linux-commands)
-  - [I/O Redirection Operators](#io-redirection-operators)
   - [From OverTheWire](#from-overthewire)
 
 
-## `$PATH` and Command Paths
+## Basic commands and fundamentals
+**$PATH` and Command Paths**
 - `$PATH` is used to find the path of commands.
 - Use `which <command>` to determine the path of a command.
 
-## Command Format
+**Command Format**
 - Format: `command <-options> <inputs>`.
 - Some options have their own input.
 ![alt text](img/image.png)
 - Some options need a `=` to be connected to their inputs.
 
-## Manual Pages
+**Manual Pages**
 ![alt text](img/image-1.png)
 - Mostly use sections 1, 5, and 8 of the manual structure.
 - Use `man -k <command>` to search for the manual for a specific command.
@@ -36,25 +31,33 @@ Linux is a Unix-like operating system renowned for its open-source nature and ve
 - Some commands don’t have a manual page so use `help` instead
 ![alt text](img/image-3.png)
 
-## Command Input and Output
+**Command Input and Output**
 ![alt text](img/image-4.png)
 - Direct standard output (1) with `>`.
 - Redirect standard error (2) with `2>`.
 - Redirection `>` overwrites current contents, `>>` appends to content.
 
-## Piping
+**Piping**
 - Use the Tee command to allow data flow in two directions.
 ![alt text](img/image-5.png)
 - Xargs converts pipe data into command line arguments.
 ![alt text](img/image-6.png)
 ![alt text](img/image-7.png)
 
-## File Management
+**File Management**
 - A dot `.` makes a file hidden when added to the front.
 - `.bash_aliases` file for creating aliases in Linux.
 - Make aliases with `alias <alias_name>='<command_and_arg>'`.
 ![alt text](img/image-8.png)
 ![alt text](img/image-9.png)
+
+**I/O Redirection Operators**
+- `>`: Sends output to a file.
+- `<`: Receives input for a command from a file.
+- `|`: Redirects output as input to another command.
+- `>>`: Appends output to a file.
+- `2>`: Redirects errors to a file.
+- `2>>`: Appends errors to a file.
 
 ## Useful Linux Commands
 1. `pwd`: Print working directory.
@@ -97,14 +100,6 @@ Linux is a Unix-like operating system renowned for its open-source nature and ve
 38. `unzip`: Decompress files (ZIP format).
 39. `chmod`: Change file permissions.
 40. `chown`: Change file ownership.
-
-## I/O Redirection Operators
-- `>`: Sends output to a file.
-- `<`: Receives input for a command from a file.
-- `|`: Redirects output as input to another command.
-- `>>`: Appends output to a file.
-- `2>`: Redirects errors to a file.
-- `2>>`: Appends errors to a file.
 
 ## From OverTheWire
 
