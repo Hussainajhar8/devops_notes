@@ -1,6 +1,10 @@
 # Linux Fundamental Knowledge
 
+Linux is a Unix-like operating system renowned for its open-source nature and versatility. It originated as a hobby project by Linus Torvalds in 1991 and has since evolved into a powerful platform used in servers, desktops, embedded systems, and more. Linux offers a wide range of distributions, each tailored to different needs and preferences, making it a popular choice among developers, administrators, and enthusiasts. With its robust security features, command-line interface, and vast software ecosystem, Linux provides users with a flexible and customizable computing environment.
+
+# Index
 - [Linux Fundamental Knowledge](#linux-fundamental-knowledge)
+- [Index](#index)
   - [`$PATH` and Command Paths](#path-and-command-paths)
   - [Command Format](#command-format)
   - [Manual Pages](#manual-pages)
