@@ -1,6 +1,6 @@
 # Terraform Notes
 
-These are my notes for filling gaps in Terraform for the Hashicorp Terraform Associate 003 certification exam.
+These notes cover important topics related to Terraform that I have identified while preparing for the Hashicorp Terraform Associate 003 certification exam. I have included examples and explanations to help me better understand these concepts and fill any gaps in my knowledge. These notes will serve as a valuable resource for me to review and revise before the exam.
 
 ## Index
 - [Terraform Notes](#terraform-notes)
@@ -13,12 +13,12 @@ These are my notes for filling gaps in Terraform for the Hashicorp Terraform Ass
   - [Section 8: Terraform State Management](#section-8-terraform-state-management)
   - [Section 9: Terraform Advanced Concepts](#section-9-terraform-advanced-concepts)
   - [Section 10: Terraform Cloud](#section-10-terraform-cloud)
-  - [Exam Gaps](#exam-gaps)
+  - [Practice exam gaps](#practice-exam-gaps)
     - [How to Remove State Lock?](#how-to-remove-state-lock)
     - [Terraform Language](#terraform-language)
     - [Terraform's Parallelism](#terraforms-parallelism)
-    - [Where Workspace TFStates are Stored](#where-workspace-tfstates-are-stored)
-    - [Can You Not Refresh State When You `tf apply`?](#can-you-not-refresh-state-when-you-tf-apply)
+    - [Where workspace Tfstates are stored](#where-workspace-tfstates-are-stored)
+    - [Can you avoid refreshing state when you `tf apply`?](#can-you-avoid-refreshing-state-when-you-tf-apply)
     - [Details of Data Block](#details-of-data-block)
     - [Can You Use `terraform plan` and `apply` When TF Cloud is the Backend?](#can-you-use-terraform-plan-and-apply-when-tf-cloud-is-the-backend)
 
@@ -293,8 +293,8 @@ These are my notes for filling gaps in Terraform for the Hashicorp Terraform Ass
    - The alias can then be specified in resources for deployment in the desired region.
 
 
-## Exam Gaps
-- After completing several practice exams, I've compiled some areas of weaknesses and notes regarding them.
+## Practice exam gaps
+- After completing several practice exams, I have been able to pinpoint the specific topics that I need to focus on more and have taken detailed notes to help me improve in those areas.
 
 ### How to Remove State Lock?
 - To remove the lock on the state for the current configuration, you can use the `terraform force-unlock` command.
@@ -308,10 +308,10 @@ These are my notes for filling gaps in Terraform for the Hashicorp Terraform Ass
 - Adjustments can be made to control the level of parallelism:<br>
 ![alt text](img/image-44.png)
 
-### Where Workspace TFStates are Stored
+### Where workspace Tfstates are stored
 In the Terraform community (Free) edition, the local state for workspaces is stored in a directory called `terraform.tfstate.d/<workspace_name>`. This directory structure facilitates separate state files for each workspace, simplifying state management and maintenance.
 
-### Can You Not Refresh State When You `tf apply`?
+### Can you avoid refreshing state when you `tf apply`?
 Yes, you can prevent Terraform from refreshing the state of infrastructure resources before applying changes using the `terraform apply -refresh=false` command. This option disables Terraform's default behavior of checking the current state of resources before making modifications. It can be useful when you want to apply changes quickly without waiting for Terraform to refresh the state, especially if you're confident that the state is already up to date. However, caution should be exercised when using this option to avoid unintended consequences.
 
 ### Details of Data Block
