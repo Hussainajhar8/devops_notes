@@ -2,6 +2,26 @@
 
 These are my notes for filling gaps in Terraform for the Hashicorp Terraform Associate 003 certification exam.
 
+## Index
+- [Terraform Notes](#terraform-notes)
+  - [Index](#index)
+  - [Section 3 : Terraform State](#section-3--terraform-state)
+  - [Section 4: Terraform Provisioners](#section-4-terraform-provisioners)
+  - [Section 5: Advanced Terraform Usage](#section-5-advanced-terraform-usage)
+  - [Section 6: Terraform Modules](#section-6-terraform-modules)
+  - [Section 7: Terraform Workflow](#section-7-terraform-workflow)
+  - [Section 8: Terraform State Management](#section-8-terraform-state-management)
+  - [Section 9: Terraform Advanced Concepts](#section-9-terraform-advanced-concepts)
+  - [Section 10: Terraform Cloud](#section-10-terraform-cloud)
+  - [Exam Gaps](#exam-gaps)
+    - [How to Remove State Lock?](#how-to-remove-state-lock)
+    - [Terraform Language](#terraform-language)
+    - [Terraform's Parallelism](#terraforms-parallelism)
+    - [Where Workspace TFStates are Stored](#where-workspace-tfstates-are-stored)
+    - [Can You Not Refresh State When You `tf apply`?](#can-you-not-refresh-state-when-you-tf-apply)
+    - [Details of Data Block](#details-of-data-block)
+    - [Can You Use `terraform plan` and `apply` When TF Cloud is the Backend?](#can-you-use-terraform-plan-and-apply-when-tf-cloud-is-the-backend)
+
 ## Section 3 : Terraform State
 
 - Terraform state: Used to correctly manage infrastructure resources.
@@ -271,3 +291,31 @@ These are my notes for filling gaps in Terraform for the Hashicorp Terraform Ass
 7. **Additional Regions:**
    - Utilize another provider block with an alias to deploy resources in different regions.
    - The alias can then be specified in resources for deployment in the desired region.
+
+
+## Exam Gaps
+- After completing several practice exams, I've compiled some areas of weaknesses and notes regarding them.
+
+### How to Remove State Lock?
+- To remove the lock on the state for the current configuration, you can use the `terraform force-unlock` command.
+
+### Terraform Language
+- Terraform is an immutable and declarative Infrastructure as Code provisioning language. Users define the desired state of their infrastructure, and Terraform orchestrates the necessary changes to achieve that state. The language is based on HashiCorp Configuration Language (HCL) or JSON for configuration files.
+
+### Terraform's Parallelism
+- By default, Terraform provisions resources concurrently with a maximum of 10 concurrent resource operations. This setting is controlled by the `parallelism` configuration option in Terraform, which can be set globally in the Terraform configuration file or on a per-module basis. 
+
+- Adjustments can be made to control the level of parallelism:
+![alt text](img/image-44.png)
+
+### Where Workspace TFStates are Stored
+In the Terraform community (Free) edition, the local state for workspaces is stored in a directory called `terraform.tfstate.d/<workspace_name>`. This directory structure facilitates separate state files for each workspace, simplifying state management and maintenance.
+
+### Can You Not Refresh State When You `tf apply`?
+Yes, you can prevent Terraform from refreshing the state of infrastructure resources before applying changes using the `terraform apply -refresh=false` command. This option disables Terraform's default behavior of checking the current state of resources before making modifications. It can be useful when you want to apply changes quickly without waiting for Terraform to refresh the state, especially if you're confident that the state is already up to date. However, caution should be exercised when using this option to avoid unintended consequences.
+
+### Details of Data Block
+When adding a data block to the configuration, Terraform retrieves all available data for the specified resource. It's then up to the user to reference a specific attribute that can be exported from that data source.
+
+### Can You Use `terraform plan` and `apply` When TF Cloud is the Backend?
+Yes, if you have configured your state to use Terraform Cloud as the backend, you can continue to use the local Terraform CLI to execute operations while leveraging Terraform Cloud. You can specify the workspace in which you want to execute the operation.
