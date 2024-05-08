@@ -305,7 +305,7 @@ These are my notes for filling gaps in Terraform for the Hashicorp Terraform Ass
 ### Terraform's Parallelism
 - By default, Terraform provisions resources concurrently with a maximum of 10 concurrent resource operations. This setting is controlled by the `parallelism` configuration option in Terraform, which can be set globally in the Terraform configuration file or on a per-module basis. 
 
-- Adjustments can be made to control the level of parallelism:
+- Adjustments can be made to control the level of parallelism:<br>
 ![alt text](img/image-44.png)
 
 ### Where Workspace TFStates are Stored
