@@ -15,6 +15,8 @@ The repository is structured into separate child folders, each dedicated to a sp
 Here's a brief overview of the folders and topics covered in this repository:
 
 - **Linux**: Notes and resources related to Linux system administration, command-line usage, scripting, and more.
+- **Terraform**: Documentation, tutorials, and best practices for infrastructure as code using Terraform.
+- **CI/CD**: Introduction to Continuous Integration and Continuous Delivery practices, tools like GitHub Actions, GitLab CI/CD, Jenkins and best practices for automating software delivery pipelines.
 - **Docker**: Resources covering Docker containers, images, Dockerfile creation, Docker Compose, and best practices for containerization.
 - **Kubernetes**: Documentation and tutorials on Kubernetes orchestration, pods, deployments, services, and managing containerized applications at scale.
 
