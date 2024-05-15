@@ -1,6 +1,8 @@
 # GitHub Actions
 
-GitHub Actions is a tool designed to automate software development workflows. Workflows are configurable automated processes that perform various tasks such as testing, publishing a package, deploying applications, notifying users, and opening issues. A workflow can consist of multiple jobs, and each job can have a series of steps.
+GitHub Actions is a tool designed to automate software development workflows. Workflows are configurable automated processes that perform various tasks such as testing, publishing a package, deploying applications, notifying users, and opening issues. A workflow can consist of multiple jobs, and each job can have a series of steps. [Refer To Documentation when creating pipelines](https://docs.github.com/en/actions)
+
+## Section 1: Intro & Basic Concepts
 
 ### Key Components of GitHub Actions:
 
@@ -84,3 +86,38 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
   ![alt text](img/image-18.png)
 - Actions can be referenced using the `uses` syntax, and you can reference the output of an action by setting an `id` for the action step and referencing it with `${{ steps.<id>.outputs.<output_name> }}`.
 - ![alt text](img/image-19.png)
+
+# Section 2: Events that Trigger Workflows
+
+## Repository Events
+
+1. Events can be configured using the `on` block, with options such as `[push, pull_requests, issues]`.
+   - You can specify the activity type with `types` after the event, determining which activity of that event will trigger the workflow.
+     ![alt text](img/image-20.png)
+   - For forked pull requests, workflows can be approved. In private repositories, enable workflow fork pull requests in repo settings under `Settings` > `Actions` <br> 
+    ![alt text](img/image-21.png),
+    <br> and specify who needs approval in GitHub repo settings.
+    ![alt text](img/image-22.png)
+
+2. Use `pull_request_target` event to run in the context of the base of the pull request rather than in the context of the merge commit. This allows actions like labeling or commenting on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
+
+3. Trigger another workflow with `workflow_run`, useful for running dependent workflows. Specify the workflows to trigger under `workflows: [<name of workflow1>, <name of workflow2>]`.
+   ![alt text](img/image-23.png)
+
+4. Filter workflow runs on specific branches, tags, and paths by adding `branches` and specifying branches. Note: the order is important, and if you want to exclude a branch, it should be placed at the end. All filters set must be matched for the workflow to run.
+   ![alt text](img/image-24.png)
+
+5. Use the Workflow Dispatch event to enable manual triggering, displaying a button on GitHub for manual triggering of the workflow.
+   ![alt text](img/image-25.png)
+   - Inputs can be added to the workflow, containing a name, description, type, and default value. 
+   ![alt text](img/image-26.png)
+   - They can be referenced in the workflow with `{{ inputs.<name_of_input> }}`.
+     ![alt text](img/image-27.png)
+   - Triggered with `gh cli` using `gh workflow run`, and via the GitHub REST API using fine-grained access token and curl commands.
+    ![alt text](img/image-28.png)
+
+6. `repository_dispatch` can be used to trigger workflows based on external events such as a webhook.
+   ![alt text](img/image-29.png)
+
+7. Events can be scheduled to run at specified intervals, such as daily, every 10 minutes, or every hour.
+   ![alt text](img/image-30.png)
