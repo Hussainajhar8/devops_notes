@@ -121,3 +121,58 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
 
 7. Events can be scheduled to run at specified intervals, such as daily, every 10 minutes, or every hour.
    ![alt text](img/image-30.png)
+
+# Section 3: Expressions, Contexts, Functions, Environment Variables & Secrets
+
+1. **Expressions**:
+   - Expressions are used to programmatically set environment variables in workflow files and access contexts. They can be any combination of literal values, references to a context, or functions. Expressions are in the format `${{ <value> }}`.
+
+2. **Contexts**:
+   - Contexts provide information about workflow runs, variables, runner environments, jobs, and steps. Each context is an object containing properties, which can be strings or other objects. They're accessed using the expression syntax `${{ <context> }}`.
+  ![alt text](img/image-31.png)
+
+3. **Conditional Clauses**:
+   - Workflows can use conditional clauses like `if`.
+     ![alt text](img/image-32.png)
+     - `contains(search, item)`: Returns true if `search` contains `item`. If `search` is an array, it returns true if `item` is an element in the array. If `search` is a string, it returns true if `item` is a substring of `search`. This function is not case-sensitive and casts values to a string.
+      ![alt text](img/image-33.png)
+     - The `*` syntax applies a filter to select matching items in a collection.
+       For example, consider an array of objects named fruits.<br>
+       ![alt text](img/image-34.png)<br>
+       The filter fruits.*.name returns the array [ "apple", "orange", "pear" ].
+
+
+4. **Status Check Functions**:
+   - These functions are used as expressions in `if` conditionals and include `[success, always, cancelled, failure]` with conditions.
+
+5. **Default Environment Variables**:
+   - A list of default variables can be found in the [documentation](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables).
+     - In `if` conditionals, use the context and not environment variables because the conditional is processed by GitHub Actions before the workflow runs on the runner machine so any environment variables from the runner machine won’t work here.
+       ![alt text](img/image-35.png)
+     - custom environment variables can be configured with `env:` on three levels: workflow, job and step - depending on where you place the `env:` in the workflow file, the env set in lower levels override those above it.
+
+
+6. **Setting Environment Variables**:
+   - During workflow execution, environment variables can be set by running `echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"`.
+    ![alt text](img/image-36.png)
+     - For multiline strings, use a delimiter.
+     - Syntax is like this:
+      ![alt text](img/image-37.png)
+     - An example will look like this:
+      ![alt text](img/image-38.png)
+      And the output is this.
+      ![alt text](img/image-39.png)
+    - Note: the delimiter should be unique and uncommon so that it doesn’t accidently get fetched in the content of the value and end up giving an incomplete value because it wasn’t parsed properly
+
+7. **Configuration Variables**:
+   - These variables can be used to set secrets/variables at the repo or organization level. They can be configured on the GitHub UI, and environments will override those above them (environment > repo > organization).
+    ![alt text](img/image-40.png)
+
+8. **Secrets**:
+   - Secrets are limited to 48KB. For larger secrets, save the encrypted file to the repository, set a passphrase to decrypt the file as a secret, and use it when running a command to decrypt the file.
+    ![alt text](img/image-41.png)
+
+9. **Default GITHUB_TOKEN Secret**:
+   - By default, GitHub Actions uses a randomly generated `GITHUB_TOKEN` secret authentication token for the duration of the workflow on the runner machine. However, it's recommended to edit permissions in your workflow to only give the permissions needed for the workflow to run.
+    ![alt text](img/image-42.png)
+
