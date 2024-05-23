@@ -164,7 +164,7 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
       ![alt text](img/image-39.png)
     - Note: the delimiter should be unique and uncommon so that it doesn’t accidently get fetched in the content of the value and end up giving an incomplete value because it wasn’t parsed properly
 
-7. **Configuration Variab**:
+7. **Configuration Variables**:
    - These variables can be used to set secrets/variables at the repo or organization level. They can be configured on the GitHub UI, and environments will override those above them (environment > repo > organization).
     ![alt text](img/image-40.png)
 
