@@ -16,7 +16,7 @@ GitHub Actions is a tool designed to automate software development workflows. Wo
   
 - **Actions:** Actions are custom applications that perform complex but frequently repeated tasks. They can be used within workflows to automate various processes.
 
-![alt text](img/img/image.png)
+![alt text](img/image.png)
   
 - **YAML:** Workflows are written in YAML (YAML Ain't Markup Language), a human-readable data serialization format. YAML files define the structure of workflows, including events, jobs, and steps. Here's a quick [YAML reference](https://learnxinyminutes.com/docs/yaml/) for more information.
 
