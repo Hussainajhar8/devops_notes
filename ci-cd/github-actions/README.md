@@ -3,6 +3,7 @@
 GitHub Actions is a tool designed to automate software development workflows. Workflows are configurable automated processes that perform various tasks such as testing, publishing a package, deploying applications, notifying users, and opening issues. A workflow can consist of multiple jobs, and each job can have a series of steps. [Refer To Documentation when creating pipelines](https://docs.github.com/en/actions)
 
 ## Table of Contents
+
 - [GitHub Actions](#github-actions)
   - [Table of Contents](#table-of-contents)
 - [Section 1: Intro \& Basic Concepts](#section-1-intro--basic-concepts)
