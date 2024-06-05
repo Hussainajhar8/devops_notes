@@ -11,7 +11,6 @@ GitHub Actions is a tool designed to automate software development workflows. Wo
 - [Section 3: Expressions, Contexts, Functions, Environment Variables \& Secrets](#section-3-expressions-contexts-functions-environment-variables--secrets)
 - [Section 4: Diving Deeper with More Advanced GitHub Actions Features](#section-4-diving-deeper-with-more-advanced-github-actions-features)
 - [Section 5: Using Docker in GitHub Actions](#section-5-using-docker-in-github-actions)
-- [Section 6: Creating \& Publishing our own actions.](#section-6-creating--publishing-our-own-actions)
 
 
 # Section 1: Intro & Basic Concepts
@@ -271,4 +270,3 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
 6. **Publishing Docker Images with GitHub Actions**
    - Use Docker's login action and build and push action to publish Docker images.
 
-# Section 6: Creating & Publishing our own actions.
