@@ -268,7 +268,22 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
    - Steps will run on the runner machine, but applications will be available on `localhost` at specified ports and also on the `name:port` of the container. 
    - Docker exposes all ports to containers within the same network.
 <br>![alt text](img/image-62.png)
+
 6. **Publishing Docker Images with GitHub Actions**
    - Use Docker's login action and build and push action to publish Docker images.
 
 # Section 6: Creating & Publishing our own actions.
+
+1. **Types of Actions**
+   - **Docker Actions**: Actions that run in a Docker container.
+   - **JavaScript Actions**: Actions that run directly on the runner using Node.js.
+   - **Composite Actions**: Workflow steps bundled into an action.
+  <br>![alt text](image-63.png)
+
+2. **Best Practices for Storing Private Actions**
+   - Store private created actions in the `.github/actions` directory.
+
+3. **Creating an Action Metadata File**
+   - You must create an action metadata file.
+   - An example can be found in the [GitHub documentation](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).
+  <br>![alt text](image-64.png)
