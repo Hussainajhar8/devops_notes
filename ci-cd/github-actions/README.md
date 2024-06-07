@@ -12,6 +12,8 @@ GitHub Actions is a tool designed to automate software development workflows. Wo
 - [Section 4: Diving Deeper with More Advanced GitHub Actions Features](#section-4-diving-deeper-with-more-advanced-github-actions-features)
 - [Section 5: Using Docker in GitHub Actions](#section-5-using-docker-in-github-actions)
 - [Section 6: Creating \& Publishing our own actions.](#section-6-creating--publishing-our-own-actions)
+- [Section 7: Creating Our Own Workflow](#section-7-creating-our-own-workflow)
+  - [Workflow Plan](#workflow-plan)
 
 
 # Section 1: Intro & Basic Concepts
@@ -278,7 +280,7 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
    - **Docker Actions**: Actions that run in a Docker container.
    - **JavaScript Actions**: Actions that run directly on the runner using Node.js.
    - **Composite Actions**: Workflow steps bundled into an action.
-  <br>![alt text](image-63.png)
+  <br>![alt text](img/image-63.png)
 
 2. **Best Practices for Storing Private Actions**
    - Store private created actions in the `.github/actions` directory.
@@ -286,4 +288,45 @@ You can use workflow commands to display messages, group logs, and mask sensitiv
 3. **Creating an Action Metadata File**
    - You must create an action metadata file.
    - An example can be found in the [GitHub documentation](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).
-  <br>![alt text](image-64.png)
+  <br>![alt text](img/image-64.png)
+
+# Section 7: Creating Our Own Workflow
+
+## Workflow Plan
+
+1. **Branching and Merging**
+   - Changes will be made in a development or feature branch.
+   - These changes need to be merged to the main branch via a pull request.
+
+2. **Automated Testing on Pull Request**
+   - Tests will run on the pull request.
+   - The workflow will fail if vulnerabilities are found using CodeQL (a GitHub workflow that checks for vulnerabilities).
+
+3. **Test Workflow Steps**
+   - Install dependencies.
+   - Check for formatting errors.
+   - Check for code errors.
+   - Build the project.
+   - Run unit tests and end-to-end tests.
+   - Upload artifacts (if necessary).
+   - Send a Slack message on failure.
+
+4. **Preventing Merges on Failed Tests**
+   - Failed tests should prevent the changes from being merged to the main branch until they are fixed and pass.
+
+5. **Deploying to Production**
+   - Add a way (such as a `/deploy` comment) to deploy the code to production (an isolated environment such as AWS).
+  <br>![alt text](img/image-65.png)
+
+6. **Feature Toggles**
+   - When deployed to the main branch, create a way to enable or disable features.
+
+7. **Versioning the Application**
+   - After merging to the main branch, automate the creation of a pull request that updates the application version based on changeset files.
+   - Create a changelog file.
+   - Merge back to the main branch when ready for a new release.
+
+8. **Staging and Production Deployment**
+   - After the creation of a new release, deploy to staging.
+   - Manually approve the deployment to production.
+  <br>![alt text](img/image-66.png)
