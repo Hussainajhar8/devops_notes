@@ -7,7 +7,7 @@ These notes cover important topics related to Docker that I have identified. I h
    **Useful Commands**
       - `docker ps` # Lists all running Docker containers.
       - `docker run -p 38282:8080 -d kodekloud/simple-webapp:blue` # Runs a container from the specified image, mapping port 38282 on the host to 8080 in the container, and detaches it to run in the background.
-      ![alt text](image.png)
+      ![alt text](img/image.png)
       - `docker run <Image>:<Tag/Version>` # Runs a container from the specified image and version tag (defaults to latest if not specified).
       - `docker push and docker pull` # Pushes a local image to a Docker registry or pulls an image from it.
       ![alt text](image-1.png)
