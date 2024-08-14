@@ -19,6 +19,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - For environment variables add `-e ENVIRONMENT_VARIABLE=value`
 
 ## Section 4
+
 1. **Command CMD**
    - Add in Dockerfile like `CMD command param1` or CMD["Command","param1"]
    - CMD ["sleep","5"] is correct, CMD["sleep 5"] is incorrect
@@ -28,6 +29,11 @@ These notes cover important topics related to Docker that I have identified. I h
    - ENTRYPOINT ["executable", "param1", "param2"] is correct, In this example, the container will always run executable param1 param2 on startup.
 
 ## Section 5
+
    1. **Multiple container stack**
-      - use `docker run --link container_name:name_on_host_code` to link two containers together e.g. `docker run --link redis:redis`, docker link will soon be deprecated.
+      - Use `docker run --link container_name:name_on_host_code` to link two containers together e.g. `docker run --link redis:redis`, docker link will soon be deprecated.
       - 
+   2. **Docker Compose**
+      - Use docker compose files to specify name, image and other configurations of all required containers on one yaml file.
+      - Version 2 allows you to create virutal networks and connects the containers.
+      - Version 3 allows for swarm networking.
