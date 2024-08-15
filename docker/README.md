@@ -42,16 +42,16 @@ These notes cover important topics related to Docker that I have identified. I h
 ## Section 7
 
    1. **Docker Engine components:**
-      - Docker Daemon: Manages Docker objects like images, containers, volumes, and networks.
-      - REST API Server: Provides an API interface for interacting with the Docker daemon.
-      - Docker CLI: Command-line interface to interact with Docker; uses REST API to communicate with the daemon.
+      - **Docker Daemon:** Manages Docker objects like images, containers, volumes, and networks.
+      - **REST API Server:** Provides an API interface for interacting with the Docker daemon.
+      - **Docker CLI:** Command-line interface to interact with Docker; uses REST API to communicate with the daemon.
   
    2. **Remote Docker Control:**
       - CLI can manage a Docker engine on a remote host using the -H option.
 
    3. **Containerization Mechanism:**
-      - Namespaces: Used for isolating processes, ensuring each container has its own process ID namespace.
-      - Process Isolation: Containers think they have independent process IDs, but they share the underlying host's resources.
+      - **Namespaces:** Used for isolating processes, ensuring each container has its own process ID namespace.
+      - **Process Isolation:** Containers think they have independent process IDs, but they share the underlying host's resources.
 
    4. **Resource Management:**
       - Control Groups (cgroups): Limit CPU and memory usage for each container using options like --cpus and --memory.
