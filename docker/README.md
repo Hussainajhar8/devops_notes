@@ -125,6 +125,10 @@ These notes cover important topics related to Docker that I have identified. I h
 
 ## Advanced Docker
 
+### Section 3
+
+#### Docker Swarm
+
    1. **Basics**
       - **Docker Swarm:** Native clustering and orchestration tool for Docker containers.
       - **Cluster Components:**
@@ -202,3 +206,81 @@ These notes cover important topics related to Docker that I have identified. I h
         ```bash
         docker logs <CONTAINER-ID>
         ```
+
+#### Docker service
+
+1. **Introduction**
+   - **Docker Services**: Key component of Docker Swarm orchestration to run one or more instances of an application across a swarm cluster.
+
+2. **Creating Services**
+   - **Basic Service Creation**:
+
+     ```bash
+     docker service create --name <service-name> <image>
+     ```
+
+   - **Replicated Services**: Run multiple instances of an application.
+
+     ```bash
+     docker service create --name <service-name> --replicas 3 <image>
+     ```
+
+3. **Service Commands**
+   - **List Services**:
+
+     ```bash
+     docker service ls
+     ```
+
+   - **Inspect Service**:
+
+     ```bash
+     docker service inspect <service-name>
+     ```
+
+   - **List Service Tasks**:
+
+     ```bash
+     docker service ps <service-name>
+     ```
+
+   - **Remove Service**:
+
+     ```bash
+     docker service rm <service-name>
+     ```
+
+   - **Scale Service**:
+
+     ```bash
+     docker service scale <service-name>=<replica-count>
+     ```
+
+4. **Updating Services**
+   - **Update Service** (e.g., Publish Port):
+
+     ```bash
+     docker service update --publish-add <port>:<port> <service-name>
+     ```
+
+5. **Service Types**
+   - **Replicated Services**: Specific number of replicas across the cluster.
+   - **Global Services**: One instance of the service runs on every node.
+
+     ```bash
+     docker service create --mode global <image>
+     ```
+
+6. **Failure Handling**
+   - **Automatic Rescheduling**: If a container fails, Docker Swarm redeploys the container on another available node to meet the specified replica count.
+
+7. **Draining Nodes**
+   - **Prevent Node from Running Containers**:
+
+     ```bash
+     docker node update --availability drain <node-name>
+     ```
+
+8. **Service Name**
+   - If no name is specified, Docker assigns a random name.
+   - For replicated services, Docker appends a number to the container name to differentiate instances.
