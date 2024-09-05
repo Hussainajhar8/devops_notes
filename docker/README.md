@@ -2,7 +2,9 @@
 
 These notes cover important topics related to Docker that I have identified. I have included examples and explanations to help me better understand these concepts and fill any gaps in my knowledge. These notes will serve as a valuable resource for me to review.
 
-## Section 3
+## Docker for the Absolute Beginner
+
+### Section 3
 
    **Useful Commands:**
       - `docker ps` # Lists all running Docker containers.
@@ -18,7 +20,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - `docker build -t <tag/name> .` Builds a Docker image from a Dockerfile in the current directory and tags it with a name.
       - For environment variables add `-e ENVIRONMENT_VARIABLE=value`
 
-## Section 4
+### Section 4
 
 1. **Command CMD:**
    - Add in Dockerfile like `CMD command param1` or CMD["Command","param1"]
@@ -28,7 +30,7 @@ These notes cover important topics related to Docker that I have identified. I h
    - The ENTRYPOINT in a Dockerfile specifies the default command that runs when a container starts. It sets the main process that the container will execute, and unlike CMD, it cannot be easily overridden by passing arguments at runtime.
    - ENTRYPOINT ["executable", "param1", "param2"] is correct, In this example, the container will always run executable param1 param2 on startup.
 
-## Section 5
+### Section 5
 
    1. **Multiple container stack:**
       - Use `docker run --link container_name:name_on_host_code` to link two containers together e.g. `docker run --link redis:redis`, docker link will soon be deprecated.
@@ -39,7 +41,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - Version 3 allows for swarm networking.
       ![alt text](image-2.png)
 
-## Section 7
+### Section 7
 
    1. **Docker Engine components:**
       - **Docker Daemon:** Manages Docker objects like images, containers, volumes, and networks.
@@ -57,7 +59,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - Control Groups (cgroups): Limit CPU and memory usage for each container using options like --cpus and --memory.
      - Use `docker info` to see information about docker system on machine 
 
-### Docker Storage
+#### Docker Storage
 
    1. **Docker Storage and File Systems:**
       - Docker stores data on the local file system under `/var/lib/docker` with subfolders like `aufs`, `containers`, `image`, `volumes`, etc.
@@ -85,7 +87,7 @@ These notes cover important topics related to Docker that I have identified. I h
    5. **Volume and Bind Mounting:**
       - **Volume Mounting:** Mounts a Docker-managed volume from the `/var/lib/docker/volumes` directory.
       - **Bind Mounting:** Mounts a directory from any location on the host system into a container. `{host path}:{container path}`
-      `docker run -v /opt/data:/var/lib/mysql` 
+      `docker run -v /opt/data:/var/lib/mysql`
       - **Preferred Method:** Use the `--mount` option instead of `-v` for more control and clarity (e.g., `--mount type=bind,source=/data/mysql,target=/var/lib/mysql`).
 
    6. **Storage Drivers:**
@@ -97,7 +99,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - **Performance and Stability:** Different storage drivers offer varying levels of performance and stability.
       - **Customization:** Choose a storage driver based on your application's needs and the characteristics of your operating system.
 
-### Docker Networking
+#### Docker Networking
 
    1. **Docker Networks:**
     - **Default Networks:** Docker automatically creates three networks on installation: `bridge`, `none`, and `host`.
@@ -119,3 +121,84 @@ These notes cover important topics related to Docker that I have identified. I h
 
    5. **Networking Technology:**
     - **Network Namespaces:** Docker creates separate namespaces for each container to ensure isolation.
+    - Run a container named alpine-2 using the alpine image and attach it to the none network. Answer : `docker run -d --name alpine-2 --network none alpine`
+
+## Advanced Docker
+
+   1. **Basics**
+      - **Docker Swarm:** Native clustering and orchestration tool for Docker containers.
+      - **Cluster Components:**
+        - **Manager Nodes:** Manage cluster, distribute tasks, maintain state.
+        - **Worker Nodes:** Run tasks assigned by managers.
+
+   2. **Setup**
+      - **Initialize Swarm:**
+
+        ```bash
+        docker swarm init --advertise-addr <IP>
+        ```
+
+      - **Add Worker to Swarm:**
+
+        ```bash
+        docker swarm join --token <TOKEN> <MANAGER-IP>:2377
+        ```
+
+      - **Add Manager to Swarm:**
+
+        ```bash
+        docker swarm join-token manager
+        ```
+
+   3. **Management**
+      - **List Nodes:**
+
+        ```bash
+        docker node ls
+        ```
+
+      - **Promote Worker to Manager:**
+
+        ```bash
+        docker node promote <NODE-ID>
+        ```
+
+      - **Remove Node:**
+
+        ```bash
+        docker node rm <NODE-ID>
+        ```
+
+      - **Drain Node (Disable Tasks):**
+
+        ```bash
+        docker node update --availability drain <NODE-ID>
+        ```
+
+   4. **Fault Tolerance**
+      - **Quorum:** Majority of managers needed for decision-making.
+      - **Best Practice:** Use an odd number of manager nodes (3, 5, 7) for better fault tolerance.
+      - **Recover from Failure:**
+        - **Bring Node Back:** Restart failed managers to regain quorum.
+        - **Force New Cluster (if necessary):**
+
+          ```bash
+          docker swarm init --force-new-cluster --advertise-addr <IP>
+          ```
+
+   5. **Raft Consensus**
+      - **Leader Election:** Leader chosen among managers via Raft algorithm.
+      - **Data Consistency:** All changes require consensus from the majority of managers.
+
+   6. **Maintenance**
+      - **Remove Down Node:**
+
+        ```bash
+        docker node rm <NODE-ID>
+        ```
+
+      - **View Logs:**
+
+        ```bash
+        docker logs <CONTAINER-ID>
+        ```
