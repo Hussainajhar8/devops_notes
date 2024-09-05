@@ -125,7 +125,7 @@ These notes cover important topics related to Docker that I have identified. I h
 
 ## Advanced Docker
 
-### Section 3
+### AD Section 3
 
 #### Docker Swarm
 
@@ -207,6 +207,8 @@ These notes cover important topics related to Docker that I have identified. I h
         docker logs <CONTAINER-ID>
         ```
 
+### AD Section 4
+
 #### Docker service
 
 1. **Introduction**
@@ -242,12 +244,6 @@ These notes cover important topics related to Docker that I have identified. I h
 
      ```bash
      docker service ps <service-name>
-     ```
-
-   - **Remove Service**:
-
-     ```bash
-     docker service rm <service-name>
      ```
 
    - **Scale Service**:
