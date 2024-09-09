@@ -12,7 +12,7 @@ These notes cover important topics related to Docker that I have identified. I h
       ![alt text](img/image.png)
       - `docker run <Image>:<Tag/Version>` # Runs a container from the specified image and version tag (defaults to latest if not specified).
       - `docker push and docker pull` # Pushes a local image to a Docker registry or pulls an image from it.
-      ![alt text](image-1.png)
+      ![alt text](img/image-1.png)
       - `docker container rm/stop/start/prune <container_name>` # Removes, stops, starts, or cleans up containers by name.
       - `docker image build/ls/prune/rm <image_name>` # Builds, lists, removes, or cleans up Docker images.
       - `docker attach <Running_container_id>` # Connects to the terminal of a running container.
@@ -39,7 +39,7 @@ These notes cover important topics related to Docker that I have identified. I h
       - Use docker compose files to specify name, image and other configurations of all required containers on one yaml file.
       - Version 2 allows you to create virutal networks and connects the containers.
       - Version 3 allows for swarm networking.
-      ![alt text](image-2.png)
+      ![alt text](img/image-2.png)
 
 ### Section 7
 
