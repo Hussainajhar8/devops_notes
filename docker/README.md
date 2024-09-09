@@ -280,3 +280,60 @@ These notes cover important topics related to Docker that I have identified. I h
 8. **Service Name**
    - If no name is specified, Docker assigns a random name.
    - For replicated services, Docker appends a number to the container name to differentiate instances.
+
+## AD Section 5
+
+### Docker Stacks
+
+1. **Introduction:**
+   Allows you to deploy and manage multi-container applications using a single configuration file.
+
+2. **Docker Compose vs. Docker Stack**
+   - **Docker Compose:**
+     - Used for defining and running multi-container Docker applications.
+     - Typically used with `docker-compose up` for single-host deployments.
+   - **Docker Stack:**
+     - Extends Docker Compose functionality to multi-node Swarm clusters.
+     - Deploys a complete application stack with `docker stack deploy`.
+
+3. **Docker Compose File**
+   - **Format:** YAML
+   - **Version:** Use version 3 for Docker Swarm configurations.
+   - **Key Property:** `deploy`
+     - **Replicas:** Number of service instances.
+     - **Placement:** Placement constraints (e.g., node hostname or role).
+     - **Resources:** Limits for CPU and memory.
+
+4. **Example Stack Configuration**
+
+   ```yaml
+   version: '3'
+   services:
+     redis:
+       image: redis
+       deploy:
+         replicas: 1
+         resources:
+           limits:
+             cpus: "0.5"
+             memory: 50M
+     postgres:
+       image: postgres
+       deploy:
+         replicas: 1
+         placement:
+           constraints:
+             - node.role == manager
+     vote:
+       image: votingapp/vote
+       deploy:
+         replicas: 2
+     worker:
+       image: votingapp/worker
+       deploy:
+         replicas: 1
+     result:
+       image: votingapp/result
+       deploy:
+         replicas: 1
+   ```
